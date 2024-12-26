@@ -1,0 +1,76 @@
+{
+  "teams": [
+    {
+      "cover": "/teams/angers.png",
+      "title": "Angers"
+    },
+    {
+      "cover": "/teams/auxerre.png",
+      "title": "Auxerre"
+    },
+    {
+      "cover": "/teams/brest.png",
+      "title": "Brest"
+    },
+    {
+      "cover": "/teams/lehavre.png",
+      "title": "Le Havre"
+    },
+    {
+      "cover": "/teams/lens.png",
+      "title": "Lens"
+    },
+    {
+      "cover": "/teams/lille.png",
+      "title": "Lille"
+    },
+    {
+      "cover": "/teams/lyon.png",
+      "title": "Lyon"
+    },
+    {
+      "cover": "/teams/marseille.png",
+      "title": "Marseille"
+    },
+    {
+      "cover": "/teams/monaco.png",
+      "title": "Monaco"
+    },
+    {
+      "cover": "/teams/montpellier.png",
+      "title": "Montpellier"
+    },
+    {
+      "cover": "/teams/nantes.png",
+      "title": "Nantes"
+    },
+    {
+      "cover": "/teams/nice.png",
+      "title": "Nice"
+    },
+    {
+      "cover": "/teams/psg.png",
+      "title": "Paris"
+    },
+    {
+      "cover": "/teams/reims.png",
+      "title": "Reims"
+    },
+    {
+      "cover": "/teams/rennes.png",
+      "title": "Rennes"
+    },
+    {
+      "cover": "/teams/saint etienne.png",
+      "title": "Saint Etienne"
+    },
+    {
+      "cover": "/teams/strasbourg.png",
+      "title": "Strasbourg"
+    },
+    {
+      "cover": "/teams/toulouse.png",
+      "title": "Toulouse"
+    }
+  ]
+}

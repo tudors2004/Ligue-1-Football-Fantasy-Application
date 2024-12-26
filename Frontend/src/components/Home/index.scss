@@ -1,0 +1,134 @@
+.home-page {
+  .text-zone {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 53px;
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: '';
+      color: #ffd700;
+      font-size: 18px;
+      position: absolute;
+      top: -40px;
+      left: 15px;
+      opacity: 0.6;
+    }
+
+    &::after {
+      content: '';
+      color: #ffd700;
+      font-size: 18px;
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      animation: fadeIn 1s 1.7s backwards;
+      opacity: 0.6;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+      opacity: 0;
+      animation: rotateIn 1s linear both;
+      animation-delay: 1.4s;
+    }
+  }
+
+  h2 {
+    color: #ade8f4;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 1.8s backwards;
+  }
+
+  .flat-button {
+    color: #ffd700;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 2px solid #ffd700;
+    margin-top: 25px;
+    display: inline-block;
+    animation: fadeIn 1s 1.8s backwards;
+    white-space: nowrap;
+
+    &:hover {
+      background: #ffd700;
+      color: #333;
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .home-page {
+    h1 {
+      font-size: 39px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-page {
+    .text-zone {
+      position: static;
+      width: 100%;
+      transform: none;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .flat-button {
+      margin: 0 auto;
+      display: block;
+      width: 125px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}

@@ -12,8 +12,9 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:3000", "https://ligue1fantasy.vercel.app")
-                        .allowedMethods("GET");
+                        .allowedOrigins("http://localhost:3000")//, "https://ligue1fantasy.vercel.app")
+                        .allowedMethods("*")
+                        .allowCredentials(true);
             }
         };
     }

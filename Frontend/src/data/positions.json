@@ -1,0 +1,24 @@
+{
+  "positions": [
+    {
+      "cover": "/positions/gk.jpg",
+      "title": "Goalkeeper",
+      "search": "GK"
+    },
+    {
+      "cover": "/positions/df.jpg",
+      "title": "Defender",
+      "search": "DF"
+    },
+    {
+      "cover": "/positions/mf.jpg",
+      "title": "Midfielder",
+      "search": "MF"
+    },
+    {
+      "cover": "/positions/fw.jpg",
+      "title": "Forward",
+      "search": "FW"
+    }
+  ]
+}
