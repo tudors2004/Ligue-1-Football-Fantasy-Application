@@ -9,8 +9,7 @@ import Nation from "./components/Nation";
 import Layout from "./components/Layout";
 import Search from "./components/Search";
 import TeamData from "./components/TeamData";
-import NationData from "./components/NationData";
-import PositionData from "./components/PositionData";
+
 
 function App() {
     useEffect(() => {
@@ -22,14 +21,12 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="data" element={<AllData />} />
                     <Route path="teams" element={<Teams />} />
                     <Route path="nation" element={<Nation />} />
                     <Route path="position" element={<Position />} />
-                    <Route path="nation-data" element={<NationData />} />
-                    <Route path="position-data" element={<PositionData />} />
                     <Route path="search" element={<Search />} />
                     <Route path="player-data" element={<TeamData />} />
+                    <Route path="data" element={<AllData />} />
                 </Route>
             </Routes>
         </>

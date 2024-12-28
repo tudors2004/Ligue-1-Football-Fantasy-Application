@@ -27,11 +27,12 @@ public class PlayerService {
         return playerRepository.findAll().stream().filter(player -> player.getName().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
     }
     public List<Player> getPlayerByPosition(String searchText) {
-        return playerRepository.findAll().stream().filter(player -> player.getPosition().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
+        return playerRepository.findAll().stream().filter(player -> player.getPosition() != null && player.getPosition().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
     }
     public List<Player> getPlayerByNation(String searchText) {
-        return playerRepository.findAll().stream().filter(player -> player.getNation().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
-    }
+        return playerRepository.findAll().stream().filter(player -> player.getNation() != null && player.getNation().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
+}
+
     public List<Player> getPlayersByTeamAndPosition(String team, String position) {
         return playerRepository.findAll().stream().filter(player -> team.equals(player.getTeam()) && position.equals(player.getPosition())).collect(Collectors.toList());
     }
