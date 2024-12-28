@@ -51,7 +51,7 @@ body::-webkit-scrollbar-thumb:hover {
 
   h1 {
     color: #efa4a4;
-    font-size: 53px;
+    font-size: 45px;
     margin: 0;
     font-weight: 400;
     cursor: pointer;
@@ -60,7 +60,7 @@ body::-webkit-scrollbar-thumb:hover {
     &::before {
       content: '';
       color: #ffd700;
-      font-size: 18px;
+      font-size: 20px;
       position: absolute;
       top: -40px;
       left: 15px;
@@ -70,7 +70,7 @@ body::-webkit-scrollbar-thumb:hover {
     &::after {
       content: '';
       color: #ffd700;
-      font-size: 18px;
+      font-size: 20px;
       position: absolute;
       top: 18px;
       left: 20px;
@@ -79,7 +79,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     img {
-      width: 200px;
+      width: 180px;
       height: auto;
       opacity: 0;
       animation: rotateIn 1s linear both;
