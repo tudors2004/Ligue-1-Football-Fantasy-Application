@@ -30,7 +30,7 @@ const Search = () => {
                 <h1 className="page-title">
                     <br/>
                     <br/>
-                    Search/Rechercher
+                    Search
                 </h1>
                 <div className="search-bar">
                     <input

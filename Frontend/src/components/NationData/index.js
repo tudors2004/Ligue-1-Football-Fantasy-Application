@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./index.scss"
+import "./index.scss";
 
-const Data = () => {
+const NationData = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [playerData, setPlayerData] = useState([]);
+    const [playersToShow, setPlayersToShow] = useState(10);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        const teamValue = params.get('team');
+        const nationValue = params.get('nation');
 
-        if (teamValue) {
-            axios.get(`http://localhost:8080/api/players?team=${encodeURIComponent(teamValue)}`)
+        if (nationValue) {
+            axios.get(`http://localhost:8080/api/players?nation=${encodeURIComponent(nationValue)}`)
                 .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
@@ -34,9 +35,9 @@ const Data = () => {
         return <p>Error: {error.message}</p>;
     }
 
-
     return (
-        <div className = "table-container">
+        <div className="table-container">
+            <h1 className="page-title">Players from Nation</h1>
             <table>
                 <thead>
                 <tr>
@@ -51,7 +52,7 @@ const Data = () => {
                     <th>Goals</th>
                     <th>Assists</th>
                     <th>G.A</th>
-                    <th>Penalties Scored</th>
+                    <th>Penalties Kicked</th>
                     <th>Yellow Cards</th>
                     <th>Red Cards</th>
                     <th>Expected Goals (xG)</th>
@@ -59,7 +60,7 @@ const Data = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {playerData.map(player => (
+                {playerData.slice(0, playersToShow).map(player => (
                     <tr key={`${player.name}-${player.team}`}>
                         <td>{player.name}</td>
                         <td>{player.team}</td>
@@ -81,9 +82,16 @@ const Data = () => {
                 ))}
                 </tbody>
             </table>
+            {playersToShow < playerData.length && (
+                <button
+                    onClick={() => setPlayersToShow(playersToShow + 10)}
+                    className="show-more-button"
+                >
+                    Show More
+                </button>
+            )}
         </div>
     );
-
 };
 
-export default Data;
+export default NationData;

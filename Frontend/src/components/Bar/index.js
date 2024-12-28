@@ -3,10 +3,8 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import LogoSubtitle from '../../images/logo text.png';
@@ -56,20 +54,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static"sx={{ backgroundColor: '#5c0508' }}>
                 <Toolbar>
                     <Link to="/" className="logo">
                         <img src={LogoSubtitle} alt="Ligue 1 Football Fantasy App" className="sub-logo-img" />
                     </Link>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
                     <Box className="nav-links">
                         <Link to="/teams">Teams</Link>
                         <Link to="/nation">Nations</Link>
@@ -88,7 +77,7 @@ export default function SearchAppBar() {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search…/Rechercher…"
+                            placeholder="Search…"
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>

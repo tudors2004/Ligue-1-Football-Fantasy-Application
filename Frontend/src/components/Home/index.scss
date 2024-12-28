@@ -1,3 +1,39 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+//#5c0508
+//#a19090
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  background: #b5747a;
+}
+body::-webkit-scrollbar-thumb {
+  background: #88070c;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #06fffb;
+}
+
+.container.home-page {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: 100vh;
+  background: url('../../images/main.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  top: 0;
+}
+
 .home-page {
   .text-zone {
     position: absolute;
@@ -14,7 +50,7 @@
   }
 
   h1 {
-    color: #fff;
+    color: #efa4a4;
     font-size: 53px;
     margin: 0;
     font-weight: 400;
@@ -52,7 +88,7 @@
   }
 
   h2 {
-    color: #ade8f4;
+    color: #f4c6c6;
     margin-top: 20px;
     font-weight: 500;
     font-size: 14px;
@@ -82,34 +118,30 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .home-page {
-    h1 {
-      font-size: 39px;
-    }
+  .home-page h1 {
+    font-size: 39px;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .home-page {
-    .text-zone {
-      position: static;
-      width: 100%;
-      transform: none;
-      padding: 10px;
-      box-sizing: border-box;
-      text-align: center;
-      padding-top: 100px;
-    }
+  .home-page .text-zone {
+    position: static;
+    width: 100%;
+    transform: none;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 100px;
+  }
 
-    h1 {
-      font-size: 40px;
-    }
+  .home-page h1 {
+    font-size: 40px;
+  }
 
-    .flat-button {
-      margin: 0 auto;
-      display: block;
-      width: 125px;
-    }
+  .home-page .flat-button {
+    margin: 0 auto;
+    display: block;
+    width: 125px;
   }
 }
 

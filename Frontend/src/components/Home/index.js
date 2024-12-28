@@ -3,6 +3,7 @@ import Loader from 'react-loaders';
 import { Link } from 'react-router-dom';
 import LogoL1 from '../../images/ligue12025.webp';
 import './index.scss';
+import mainImage from '../../images/main.jpg';
 
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
@@ -18,7 +19,17 @@ const Home = () => {
 
     return(
         <>
-            <div className = "container home-page">
+            <div className = "container home-page"
+                 style={{
+                backgroundImage: `url(${mainImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+            >
                 <div className="text-zone">
                     <h1>
                         <img src={LogoL1} alt = "Ligue 1 Football Fantasy" />
