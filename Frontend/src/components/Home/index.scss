@@ -9,7 +9,7 @@ body, html {
 //#5c0508
 //#a19090
 body::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
 }
 body::-webkit-scrollbar-track {
   background: #b5747a;
@@ -19,7 +19,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 body::-webkit-scrollbar-thumb:hover {
-  background: #06fffb;
+  background: #ffea06;
 }
 
 .container.home-page {

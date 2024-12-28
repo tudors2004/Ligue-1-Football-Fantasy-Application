@@ -1,7 +1,4 @@
-/* index.scss */
-/* Global Styles for AppBar */
 .app-bar {
-  background-color: #1e3a5f; /* Dark navy blue */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -19,64 +16,51 @@
   }
 }
 
-/* Navigation Links */
 .nav-links {
   display: flex;
-  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 1;
 
-  a {
+  .hoverable-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease-in-out;
+    color: #ffea06;
+    transition: color 0.3s ease;
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    .icon {
+      font-size: 28px;
+      transition: opacity 0.3s ease;
     }
 
-    &.active {
-      background-color: rgba(255, 255, 255, 0.3);
+    .hover-text {
+      position: absolute;
+      bottom: -20px;
+      opacity: 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: #ffea06;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover {
+      .icon {
+        opacity: 0;
+      }
+
+      .hover-text {
+        opacity: 1;
+      }
     }
   }
 }
 
-/* Search Bar Styling */
-.search-bar {
-  position: relative;
-
-  .MuiInputBase-root {
-    color: #ffffff; /* White text */
-    background-color: rgba(255, 255, 255, 0.1); /* Light background */
-    border-radius: 4px;
-    padding-left: 40px; /* To make space for the search icon */
-    padding-right: 10px;
-    height: 36px;
-    transition: background-color 0.3s ease-in-out;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    &:focus-within {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-  }
-
-  .MuiSvgIcon-root {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ffffff; /* White icon */
-  }
-}
-
-/* Responsive Adjustments */
 @media screen and (max-width: 600px) {
   .nav-links {
-    display: none; /* Hide links on small screens */
+    justify-content: space-between;
   }
 }

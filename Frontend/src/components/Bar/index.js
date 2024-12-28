@@ -1,86 +1,72 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
+import PeopleIcon from '@mui/icons-material/People';
+import FlagIcon from '@mui/icons-material/Flag';
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import LogoSubtitle from '../../images/logo text.png';
 import './index.scss';
 
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
-        width: 'auto',
-    },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
+const HoverableLink = styled(Link)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    width: '100%',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        [theme.breakpoints.up('sm')]: {
-            width: '12ch',
-            '&:focus': {
-                width: '20ch',
-            },
-        },
+    color: '#ffea06',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    position: 'relative',
+    textDecoration: 'none',
+    height: '40px',
+    width: '40px',
+    '& .hover-text': {
+        opacity: 0,
+        visibility: 'hidden',
+        position: 'absolute',
+        transition: 'opacity 0.3s ease, visibility 0.3s ease',
+    },
+    '&:hover .hover-text': {
+        opacity: 1,
+        visibility: 'visible',
+    },
+    '& .icon': {
+        opacity: 1,
+        transition: 'opacity 0.3s ease',
+    },
+    '&:hover .icon': {
+        opacity: 0,
     },
 }));
 
 export default function SearchAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static"sx={{ backgroundColor: '#5c0508' }}>
+            <AppBar position="static" sx={{ backgroundColor: '#5c0508' }}>
                 <Toolbar>
                     <Link to="/" className="logo">
                         <img src={LogoSubtitle} alt="Ligue 1 Football Fantasy App" className="sub-logo-img" />
                     </Link>
-                    <Box className="nav-links">
-                        <Link to="/teams">Teams</Link>
-                        <Link to="/nation">Nations</Link>
-                        <Link to="/position">Positions</Link>
-                        <Link to="/search">Search</Link>
+                    <Box className="nav-links" sx={{ display: 'flex', justifyContent: 'space-evenly', flexGrow: 1 }}>
+                        <HoverableLink to="/teams">
+                            <PeopleIcon className="icon" style={{ fontSize: 28 }} />
+                            <span className="hover-text">Teams</span>
+                        </HoverableLink>
+                        <HoverableLink to="/nation">
+                            <FlagIcon className="icon" style={{ fontSize: 28 }} />
+                            <span className="hover-text">Nations</span>
+                        </HoverableLink>
+                        <HoverableLink to="/position">
+                            <SportsSoccerIcon className="icon" style={{ fontSize: 28 }} />
+                            <span className="hover-text">Positions</span>
+                        </HoverableLink>
+                        <HoverableLink to="/search">
+                            <SearchIcon className="icon" style={{ fontSize: 28 }} />
+                            <span className="hover-text">Search</span>
+                        </HoverableLink>
                     </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                    >
-                    </Typography>
-                    <Search className="search-bar">
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Search…"
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
                 </Toolbar>
             </AppBar>
         </Box>
