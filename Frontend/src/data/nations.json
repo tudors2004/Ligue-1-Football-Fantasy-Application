@@ -1,9 +1,9 @@
 {
   "nations": [
+    { "code": "FR", "name": "France", "search": "FRA" },
     { "code": "BR", "name": "Brazil", "search": "BRA" },
     { "code": "DE", "name": "Germany", "search": "GER" },
     { "code": "AR", "name": "Argentina", "search": "ARG" },
-    { "code": "FR", "name": "France", "search": "FRA" },
     { "code": "ES", "name": "Spain", "search": "ESP" },
     { "code": "PT", "name": "Portugal", "search": "PT" },
     { "code": "GB-ENG", "name": "England", "search": "ENG" },

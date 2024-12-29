@@ -6,8 +6,7 @@ body, html {
   height: 100%;
   box-sizing: border-box;
 }
-//#5c0508
-//#a19090
+
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -81,20 +80,19 @@ body::-webkit-scrollbar-thumb:hover {
     img {
       width: 180px;
       height: auto;
-      opacity: 0;
-      animation: rotateIn 1s linear both;
+      opacity: 1;
+      animation: fancyLogo 2s ease-in-out both;
       animation-delay: 1.4s;
     }
   }
 
-  h2 {
+  .text-zone h2 {
     color: #f4c6c6;
     margin-top: 20px;
     font-weight: 500;
     font-size: 14px;
     font-family: sans-serif;
     letter-spacing: 3px;
-    animation: fadeIn 1s 1.8s backwards;
   }
 
   .flat-button {
@@ -164,3 +162,34 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1;
   }
 }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+@keyframes fancyLogo {
+  0% {
+    transform: scale(0) rotate(-180deg) translateY(-200px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
