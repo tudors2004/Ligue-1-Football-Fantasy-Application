@@ -9,6 +9,7 @@ import Nation from "./components/Nation";
 import Layout from "./components/Layout";
 import Search from "./components/Search";
 import TeamData from "./components/TeamData";
+import Leaderboards from "./components/Leaderboard";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                     <Route path="search" element={<Search />} />
                     <Route path="player-data" element={<TeamData />} />
                     <Route path="data" element={<AllData />} />
+                    <Route path="leaderboards" element={<Leaderboards />} />
                 </Route>
             </Routes>
         </>

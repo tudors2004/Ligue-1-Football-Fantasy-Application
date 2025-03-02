@@ -1,6 +1,6 @@
 html {
   font-size: 62.5%;
-  background-color: #a19090;
+  background:linear-gradient(90deg , #aaa447,#a19090,#a19090, #975255);
 }
 body {
   margin: 0;

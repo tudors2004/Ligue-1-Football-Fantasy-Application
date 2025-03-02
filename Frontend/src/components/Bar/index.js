@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import PeopleIcon from '@mui/icons-material/People';
 import FlagIcon from '@mui/icons-material/Flag';
+import PersonIcon from '@mui/icons-material/Person';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
@@ -59,8 +60,12 @@ export default function SearchAppBar() {
                             <span className="hover-text">Nations</span>
                         </HoverableLink>
                         <HoverableLink to="/position">
-                            <SportsSoccerIcon className="icon" style={{ fontSize: 28 }} />
+                            <PersonIcon className="icon" style={{ fontSize: 28 }} />
                             <span className="hover-text">Positions</span>
+                        </HoverableLink>
+                        <HoverableLink to="/leaderboards">
+                            <SportsSoccerIcon className="icon" style={{ fontSize: 28 }} />
+                            <span className="hover-text">Leaderboards</span>
                         </HoverableLink>
                         <HoverableLink to="/search">
                             <SearchIcon className="icon" style={{ fontSize: 28 }} />

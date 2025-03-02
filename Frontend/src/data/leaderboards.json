@@ -1,0 +1,24 @@
+{
+  "leaderboards": [
+    {
+      "cover": "/leaderboards/goals.jpg",
+      "title": "Top Goalscorers",
+      "search": "Goals"
+    },
+    {
+      "cover": "/leaderboards/assists.jpg",
+      "title": "Assists leaders",
+      "search": "Assists"
+    },
+    {
+      "cover": "/leaderboards/age.jpg",
+      "title": "Age Distribution",
+      "search": "Age"
+    },
+    {
+      "cover": "/leaderboards/liveclass.jpg",
+      "title": "Live Classement",
+      "search": "Classement"
+    }
+  ]
+}

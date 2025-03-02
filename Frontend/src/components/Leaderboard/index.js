@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Loader from "react-loaders";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./index.scss";
-import positionData from "../../data/positions.json"
+import leaderboardData from "../../data/leaderboards.json";
 
-const Positions = () => {
+const Leaderboards = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
     const [searchQuery, setSearchQuery] = useState('');
-    const [filteredPositions, setFilteredPositions] = useState([]);
+    const [filteredLeaderboards, setFilteredLeaderboards] = useState([]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -17,28 +17,28 @@ const Positions = () => {
         return () => {
             clearTimeout(timer);
         }
-    }, []);
+    });
 
     useEffect(() => {
-        const filtered = positionData.positions.filter(position =>
-            position.title.toLowerCase().includes(searchQuery.toLowerCase())
+        const filtered = leaderboardData.leaderboards.filter(leaderboard =>
+            leaderboard.title.toLowerCase().includes(searchQuery.toLowerCase())
         );
-        setFilteredPositions(filtered);
+        setFilteredLeaderboards(filtered);
     }, [searchQuery]);
 
     const handleSearchChange = event => {
         setSearchQuery(event.target.value);
     };
 
-    const renderPosition = (positions) => {
+    const renderLeaderboard = (leaderboards) => {
         return (
             <div className="images-container">
-                {positions.map((position, idx) => (
+                {leaderboards.map((leaderboard, idx) => (
                     <div key={idx} className="image-box">
-                        <img src={position.cover} alt="positions" className="teams-image" />
+                        <img src={leaderboard.cover} alt="leaderboards" className="teams-image" />
                         <div className="content">
-                            <p className="title">{position.title}</p>
-                            <Link className="btn" to={`/data?position=${encodeURIComponent(position.search)}`}>
+                            <p className="title">{leaderboard.title}</p>
+                            <Link className="btn" to={`/data?leaderboard=${encodeURIComponent(leaderboard.search)}`}>
                                 View
                             </Link>
                         </div>
@@ -47,26 +47,26 @@ const Positions = () => {
             </div>
         )
     };
-
     return (
         <>
-            <div className="container teams-page">
-                <h1 className="page-title">
-                    Positions
+            <div className="container leaderboard-page">
+                <h1 className="leaderboard-title">
+                    Leaderboards
                 </h1>
                 <div className="search-bar">
                     <input
                         type="text"
-                        placeholder="Search for positions../Recherchez des positions.."
+                        placeholder="Search for leaderboards../Rechercher des classements.."
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
                 </div>
-                <div>{renderPosition(filteredPositions)}</div>
+                <div>{renderLeaderboard(filteredLeaderboards)}</div>
             </div>
             <Loader type="pacman" active />
         </>
     );
 }
 
-export default Positions;
+
+export default Leaderboards;

@@ -27,7 +27,7 @@ const Search = () => {
     return (
         <>
             <div className="container teams-page">
-                <h1 className="page-title">
+                <h1 className="search-title">
                     <br/>
                     <br/>
                     Search
