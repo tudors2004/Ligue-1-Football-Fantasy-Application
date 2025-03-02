@@ -3,22 +3,22 @@
     {
       "cover": "/leaderboards/goals.jpg",
       "title": "Top Goalscorers",
-      "search": "Goals"
+      "search": "goals"
     },
     {
       "cover": "/leaderboards/assists.jpg",
       "title": "Assists leaders",
-      "search": "Assists"
+      "search": "assists"
     },
     {
       "cover": "/leaderboards/age.jpg",
       "title": "Age Distribution",
-      "search": "Age"
+      "search": "age"
     },
     {
       "cover": "/leaderboards/liveclass.jpg",
-      "title": "Live Classement",
-      "search": "Classement"
+      "title": "Live Standings",
+      "search": "standings"
     }
   ]
 }

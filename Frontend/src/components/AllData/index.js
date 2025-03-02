@@ -14,7 +14,7 @@ const AllData = () => {
         const nationValue = params.get('nation');
         const positionValue = params.get('position');
         const nameValue = params.get('name');
-
+        const leaderboardValue = params.get('leaderboard');
         if (teamValue) {
             axios.get(`http://localhost:8080/api/players?team=${encodeURIComponent(teamValue)}`)
                 .then(response => {
@@ -55,8 +55,37 @@ const AllData = () => {
                     setError(error);
                     setLoading(false);
                 });
-        }
-        else {
+        } else if (leaderboardValue === "goals"){
+            axios.get(`http://localhost:8080/api/players?leaderboard=goals`)
+                .then(response => {
+                    setPlayerData(response.data.slice(0, 10));
+                    setLoading(false);
+                })
+                .catch(error => {
+                    setError(error);
+                    setLoading(false);
+                });
+        } else if (leaderboardValue === "assists"){
+            axios.get(`http://localhost:8080/api/players?leaderboard=assists`)
+                .then(response => {
+                    setPlayerData(response.data.slice(0, 10));
+                    setLoading(false);
+                })
+                .catch(error => {
+                    setError(error);
+                    setLoading(false);
+                });
+        } else if (leaderboardValue === "age"){
+            axios.get(`http://localhost:8080/api/players?leaderboard=age`)
+                .then(response => {
+                    setPlayerData(response.data);
+                    setLoading(false);
+                })
+                .catch(error => {
+                    setError(error);
+                    setLoading(false);
+                });
+        } else {
             setLoading(false);
         }
     }, []);

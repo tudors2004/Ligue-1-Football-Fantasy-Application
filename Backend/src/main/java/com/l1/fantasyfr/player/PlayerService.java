@@ -31,11 +31,31 @@ public class PlayerService {
     }
     public List<Player> getPlayerByNation(String searchText) {
         return playerRepository.findAll().stream().filter(player -> player.getNation() != null && player.getNation().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
-}
+    }
 
     public List<Player> getPlayersByTeamAndPosition(String team, String position) {
         return playerRepository.findAll().stream().filter(player -> team.equals(player.getTeam()) && position.equals(player.getPosition())).collect(Collectors.toList());
     }
+
+    public List<Player> getTopGoalscorers() {
+        return playerRepository
+                .findAll()
+                .stream()
+                .filter(player -> player.getGoals() != null && player.getGoals() > 0 && !player.getName().equalsIgnoreCase("Squad Total"))
+                .sorted((p1, p2) -> p2.getGoals().compareTo(p1.getGoals()))
+                .limit(10)
+                .collect(Collectors.toList());
+    }
+    public List<Player> getTopAssists() {
+        return playerRepository
+                .findAll()
+                .stream()
+                .filter(player -> player.getAssists() != null && player.getAssists() > 0 && !player.getName().equalsIgnoreCase("Squad Total"))
+                .sorted((p1, p2) -> p2.getAssists().compareTo(p1.getAssists()))
+                .limit(10)
+                .collect(Collectors.toList());
+    }
+
 
     public Player addPlayer(Player player) {
         return playerRepository.save(player);

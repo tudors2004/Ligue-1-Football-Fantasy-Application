@@ -18,7 +18,8 @@ public class PlayerController {
         @RequestParam(required = false) String team,
         @RequestParam(required = false) String name,
         @RequestParam(required = false) String position,
-        @RequestParam(required = false) String nation) {
+        @RequestParam(required = false) String nation,
+        @RequestParam(required = false) String leaderboard){
         if(team != null && position != null) {
             return playerService.getPlayersByTeamAndPosition(team, position);
         }
@@ -34,10 +35,22 @@ public class PlayerController {
         else if(nation != null){
             return playerService.getPlayerByNation(nation);
         }
-        else {
+        else if (leaderboard != null) {
+            switch (leaderboard) {
+                case "goals":
+                    return playerService.getTopGoalscorers();
+                case "assists":
+                    return playerService.getTopAssists();
+//                case "age":
+//                    return null;
+//                case "standings":
+//                    return null;
+                default:
+                    throw new IllegalArgumentException("Invalid leaderboard type");
+            }
+        } else {
             return playerService.getPlayers();
         }
-
     }
     @PostMapping
     public ResponseEntity<Player> addPlayer(@RequestBody Player player) {
