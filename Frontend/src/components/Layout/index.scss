@@ -23,6 +23,10 @@
 .container.position-page,
 .container.teams-page,
 .container.nation-page {
+  h1.page-title {
+    margin-left: -70px;
+  }
+  margin-top: 20px;
   .images-container {
     .image-box {
       animation: slideInFromBottom 2s forwards;
