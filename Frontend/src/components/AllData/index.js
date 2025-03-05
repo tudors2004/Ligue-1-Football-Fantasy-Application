@@ -7,14 +7,14 @@ const AllData = () => {
     const [error, setError] = useState(null);
     const [playerData, setPlayerData] = useState([]);
     const [playersToShow, setPlayersToShow] = useState(10);
+    const params = new URLSearchParams(window.location.search);
+    const leaderboardValue = params.get('leaderboard');
 
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
         const teamValue = params.get('team');
         const nationValue = params.get('nation');
         const positionValue = params.get('position');
         const nameValue = params.get('name');
-        const leaderboardValue = params.get('leaderboard');
         if (teamValue) {
             axios.get(`http://localhost:8080/api/players?team=${encodeURIComponent(teamValue)}`)
                 .then(response => {
@@ -75,10 +75,11 @@ const AllData = () => {
                     setError(error);
                     setLoading(false);
                 });
-        } else if (leaderboardValue === "age"){
-            axios.get(`http://localhost:8080/api/players?leaderboard=age`)
+        } else if (leaderboardValue === "age") {
+            axios.get(`http://localhost:5000/data?leaderboard=age`, { responseType: 'blob' })
                 .then(response => {
-                    setPlayerData(response.data);
+                    const imgURL = URL.createObjectURL(response.data);
+                    setPlayerData(imgURL);
                     setLoading(false);
                 })
                 .catch(error => {
@@ -127,28 +128,40 @@ const AllData = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {playerData.slice(0, playersToShow).map(player => (
-                        <tr key={`${player.name}-${player.team}`}>
-                            <td>{player.name}</td>
-                            <td>{player.team}</td>
-                            <td>{player.nation}</td>
-                            <td>{player.position}</td>
-                            <td>{player.age}</td>
-                            <td>{player.mp}</td>
-                            <td>{player.starts}</td>
-                            <td>{player.mins}</td>
-                            <td>{player.goals}</td>
-                            <td>{player.assists}</td>
-                            <td>{player.ga}</td>
-                            <td>{player.pk}</td>
-                            <td>{player.ycrd}</td>
-                            <td>{player.rcrd}</td>
-                            <td>{player.xg}</td>
-                            <td>{player.xa}</td>
+                    {Array.isArray(playerData) ? (
+                        playerData.slice(0, playersToShow).map(player => (
+                            <tr key={`${player.name}-${player.team}`}>
+                                <td>{player.name}</td>
+                                <td>{player.team}</td>
+                                <td>{player.nation}</td>
+                                <td>{player.position}</td>
+                                <td>{player.age}</td>
+                                <td>{player.mp}</td>
+                                <td>{player.starts}</td>
+                                <td>{player.mins}</td>
+                                <td>{player.goals}</td>
+                                <td>{player.assists}</td>
+                                <td>{player.ga}</td>
+                                <td>{player.pk}</td>
+                                <td>{player.ycrd}</td>
+                                <td>{player.rcrd}</td>
+                                <td>{player.xg}</td>
+                                <td>{player.xa}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="16">No data available</td>
                         </tr>
-                    ))}
+                    )}
                     </tbody>
                 </table>
+                {leaderboardValue === "age" && playerData && (
+                    <div>
+                        <img src={playerData} alt="Age Distribution Chart" />
+                    </div>
+                )}
+
                 {playersToShow < playerData.length && (
                     <button onClick={() => setPlayersToShow(playersToShow + 10)} style={{ marginTop: '10px', marginBottom: '10px' }} className={`show-more-button ${loading ? 'loading' : ''}`}>
                         Show More
