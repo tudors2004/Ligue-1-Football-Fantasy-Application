@@ -13,4 +13,5 @@ This application provides a comprehensive overview of Ligue 1, featuring detaile
 - **Database**: Real-time data storage and management using PostgreSQL(hosted with Supabase)
 - **Frontend**:  A responsive and modern user interface developed with React, using JavaScript for functionality and SCSS for styling.
 - **Data Scraping**: Automated data extraction from FBref using Python and pandas.
-  
+
+⚠️Flask age distribution chart is not being hosted yet.
