@@ -10,9 +10,10 @@ const TeamData = () => {
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const teamValue = params.get('team');
+        const baseURL = 'https://ligue1-680372347637.europe-central2.run.app/api/players';
 
         if (teamValue) {
-            axios.get(`http://localhost:8080/api/players?team=${encodeURIComponent(teamValue)}`)
+            axios.get(`${baseURL}?team=${encodeURIComponent(teamValue)}`)
                 .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);

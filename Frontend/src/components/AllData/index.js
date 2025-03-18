@@ -9,6 +9,7 @@ const AllData = () => {
     const [playersToShow, setPlayersToShow] = useState(10);
     const params = new URLSearchParams(window.location.search);
     const leaderboardValue = params.get('leaderboard');
+    const baseURL = 'https://ligue1-680372347637.europe-central2.run.app/api/players';
 
     useEffect(() => {
         const teamValue = params.get('team');
@@ -16,8 +17,7 @@ const AllData = () => {
         const positionValue = params.get('position');
         const nameValue = params.get('name');
         if (teamValue) {
-            axios.get(`http://localhost:8080/api/players?team=${encodeURIComponent(teamValue)}`)
-                .then(response => {
+            axios.get(`${baseURL}?team=${encodeURIComponent(teamValue)}`)                .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
                 })
@@ -26,8 +26,7 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (nationValue){
-            axios.get(`http://localhost:8080/api/players?nation=${encodeURIComponent(nationValue)}`)
-                .then(response => {
+            axios.get(`${baseURL}?team=${encodeURIComponent(teamValue)}`)                .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
                 })
@@ -36,8 +35,7 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (positionValue){
-            axios.get(`http://localhost:8080/api/players?position=${encodeURIComponent(positionValue)}`)
-                .then(response => {
+            axios.get(`${baseURL}?position=${encodeURIComponent(positionValue)}`)                .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
                 })
@@ -46,7 +44,7 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (nameValue){
-            axios.get(`http://localhost:8080/api/players?name=${encodeURIComponent(nameValue)}`)
+            axios.get(`${baseURL}?name=${encodeURIComponent(nameValue)}`)
                 .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
@@ -56,7 +54,7 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (leaderboardValue === "goals"){
-            axios.get(`http://localhost:8080/api/players?leaderboard=goals`)
+            axios.get(`${baseURL}?leaderboard=goals`)
                 .then(response => {
                     setPlayerData(response.data.slice(0, 10));
                     setLoading(false);
@@ -66,7 +64,7 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (leaderboardValue === "assists"){
-            axios.get(`http://localhost:8080/api/players?leaderboard=assists`)
+            axios.get(`${baseURL}?leaderboard=assists`)
                 .then(response => {
                     setPlayerData(response.data.slice(0, 10));
                     setLoading(false);
@@ -76,7 +74,7 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (leaderboardValue === "age") {
-            axios.get(`http://localhost:5000/data?leaderboard=age`, { responseType: 'blob' })
+            axios.get(`${baseURL}?leaderboard=age`, { responseType: 'blob' })
                 .then(response => {
                     const imgURL = URL.createObjectURL(response.data);
                     setPlayerData(imgURL);
