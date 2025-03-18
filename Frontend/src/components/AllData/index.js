@@ -17,7 +17,8 @@ const AllData = () => {
         const positionValue = params.get('position');
         const nameValue = params.get('name');
         if (teamValue) {
-            axios.get(`${baseURL}?team=${encodeURIComponent(teamValue)}`)                .then(response => {
+            axios.get(`${baseURL}?team=${encodeURIComponent(teamValue)}`)
+                .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
                 })
@@ -26,7 +27,8 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (nationValue){
-            axios.get(`${baseURL}?team=${encodeURIComponent(teamValue)}`)                .then(response => {
+            axios.get(`${baseURL}?nation=${encodeURIComponent(nationValue)}`)
+                .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
                 })
@@ -35,7 +37,8 @@ const AllData = () => {
                     setLoading(false);
                 });
         } else if (positionValue){
-            axios.get(`${baseURL}?position=${encodeURIComponent(positionValue)}`)                .then(response => {
+            axios.get(`${baseURL}?position=${encodeURIComponent(positionValue)}`)
+                .then(response => {
                     setPlayerData(response.data);
                     setLoading(false);
                 })
